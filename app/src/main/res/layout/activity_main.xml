@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_1"
-    tools:context=".MainActivity">
-
+    tools:context=".MainActivity"
+    >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
+        android:layout_height="wrap_content"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +23,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dhaka"
+                android:text="@string/dhaka"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textStyle="bold"
@@ -35,7 +34,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Today"
+                android:text="@string/today"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textStyle="bold"
@@ -46,7 +45,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nov June 25"
+                android:text="@string/nov_june_25"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textAlignment="center"
@@ -54,16 +53,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="376dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/background_2"
+                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="131dp"
                     android:layout_marginBottom="16dp"
                     app:srcCompat="@drawable/cloudy_sunny" />
 
@@ -80,11 +79,11 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="25°"
-                    android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:textSize="43sp"
-                    android:layout_marginTop="4dp" />
+                    android:textColor="@color/white"
+                    android:textSize="43sp" />
 
                 <TextView
                     android:id="@+id/textView5"
@@ -193,35 +192,84 @@
 
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="80dp"
                 android:layout_margin="16dp"
-                android:padding="8dp"
-                >
+                android:orientation="vertical"
+                android:padding="8dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:padding="4dp"
                     android:text="Enter your city name: "
                     android:textColor="@color/white"
-                    android:gravity="left"
-                    android:textSize="18sp"
-                    android:layout_marginTop="5dp"
-                    android:padding="4dp" />
+                    android:textSize="18sp" />
 
                 <SearchView
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:queryHint="Enter city name"
-                    android:outlineAmbientShadowColor="@color/white"
                     android:background="@color/white"
-                    />
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:queryHint="Enter city name" />
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        android:layout_alignParentBottom="true"
+        android:weightSum="3"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:background="@color/back_1"
+        android:layout_marginBottom="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/homButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="🏠\nHome"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@color/back_2"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/seeButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="☁️\nSee more"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@color/back_2"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/webButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="🌐\nWeb View"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@color/back_2"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

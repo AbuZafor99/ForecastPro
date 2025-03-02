@@ -1,7 +1,9 @@
 package com.example.weatherapp;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -23,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView cityTextView, tempTextView, conditionTextView, windTextView, humidityTextView, rainTextView, highLowTextView, dateTextView;
     private ImageView weatherImageView;
     private SearchView searchView;
-    private RequestQueue queue;
+    private RequestQueue queue ;
+    private TextView homeB, seemoreB, webviewB;
     private String apiKey = "ad9c0d412f333d90765cd7a329d6e3b4"; // Your API key
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +45,16 @@ public class MainActivity extends AppCompatActivity {
         dateTextView = findViewById(R.id.textView2);
         searchView = findViewById(R.id.search_bar);
         weatherImageView = findViewById(R.id.imageView);
+        homeB=findViewById(R.id.homButton) ;
+        seemoreB=findViewById(R.id.seeButton) ;
+        webviewB=findViewById(R.id.webButton) ;
+
 
         queue = Volley.newRequestQueue(this);
         updateDate();
         fetchWeatherData("Dhaka");
 
+        //====================weather search action==========================
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -57,6 +65,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
+            }
+        });
+
+        //=========================on button click action====================
+
+
+//        homeB.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//
+//        seemoreB.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+        webviewB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent= new Intent(MainActivity.this, Windy_WebView.class) ;
+                startActivity(myIntent);
             }
         });
     }
