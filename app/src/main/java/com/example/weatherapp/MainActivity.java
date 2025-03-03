@@ -71,19 +71,21 @@ public class MainActivity extends AppCompatActivity {
         //=========================on button click action====================
 
 
-//        homeB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//
-//        seemoreB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        homeB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent= new Intent(MainActivity.this, MainActivity.class) ;
+                startActivity(myIntent);
+            }
+        });
+
+        seemoreB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent= new Intent(MainActivity.this, See_More.class) ;
+                startActivity(myIntent);
+            }
+        });
 
         webviewB.setOnClickListener(new View.OnClickListener() {
             @Override
