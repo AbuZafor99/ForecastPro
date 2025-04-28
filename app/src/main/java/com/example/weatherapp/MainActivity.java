@@ -1,9 +1,11 @@
 package com.example.weatherapp;
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -20,14 +22,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity { 
 
     private TextView cityTextView, tempTextView, conditionTextView, windTextView, humidityTextView, rainTextView, highLowTextView, dateTextView;
     private ImageView weatherImageView;
     private SearchView searchView;
     private RequestQueue queue ;
     private TextView homeB, seemoreB, webviewB;
-    private String apiKey = "ad9c0d412f333d90765cd7a329d6e3b4"; // Your API key
+    private String apiKey = "ad9c0d412f333d90765cd7a329d6e3b4"; // API ke
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -45,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
         dateTextView = findViewById(R.id.textView2);
         searchView = findViewById(R.id.search_bar);
         weatherImageView = findViewById(R.id.imageView);
-        homeB=findViewById(R.id.homButton) ;
-        seemoreB=findViewById(R.id.seeButton) ;
-        webviewB=findViewById(R.id.webButton) ;
-
+        homeB = findViewById(R.id.homButton);
+        seemoreB = findViewById(R.id.seeButton);
+        webviewB = findViewById(R.id.webButton);
 
         queue = Volley.newRequestQueue(this);
         updateDate();

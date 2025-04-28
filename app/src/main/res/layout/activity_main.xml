@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_1"
+    android:background="@drawable/bgmain"
     tools:context=".MainActivity"
     >
 
@@ -17,7 +17,8 @@
         android:background="@color/back_2"
         android:layout_alignParentStart="true"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/textView8"
@@ -86,7 +87,8 @@
                    android:layout_margin="16dp"
                    android:background="@drawable/background_2"
                    android:orientation="vertical"
-                   android:padding="16dp">
+                   android:padding="16dp"
+                   android:layout_marginTop="35dp">
 
                    <ImageView
                        android:id="@+id/imageView"
@@ -265,7 +267,7 @@
             android:id="@+id/webButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="🌐\nWeb View"
+            android:text="🌐\nAbout Me"
             android:layout_weight="1"
             android:textSize="20sp"
             android:textColor="@color/white"

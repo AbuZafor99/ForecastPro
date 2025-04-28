@@ -6,65 +6,178 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Windy_WebView">
-    <LinearLayout
+
+    <!-- Header Section -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
-        <WebView
-            android:id="@+id/webView1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </LinearLayout>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="About Developer"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <!-- Profile Image -->
+        <LinearLayout
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/about"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_background"
+                android:src="@drawable/mypic" />
+        </LinearLayout>
+
+        <!-- Profile Card -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:textAlignment="center">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:elevation="30dp"
+                app:cardCornerRadius="20dp"
+                android:background="@drawable/rounded_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Name -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Md Abu Zafor"
+                        android:textColor="#16772A"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <!-- Department -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:text="Department of Computer Science and Engineering"
+                        android:textColor="#16772A"
+                        android:textSize="14sp" />
+
+                    <!-- About Me Text -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="A passionate Android developer with expertise in building modern mobile applications. Experienced in Java, Kotlin, and cross-platform development. Open source contributor and tech enthusiast."
+                        android:textAlignment="center"
+                        android:textColor="#16772A"
+                        android:textSize="14sp" />
+
+                    <!-- Social Icons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <!-- GitHub -->
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="8dp"
+                            android:onClick="openGithub"
+                            android:src="@drawable/giticon" />
+
+                        <!-- LinkedIn -->
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="8dp"
+                            android:onClick="openLinkedIn"
+                            android:src="@drawable/linkdinicon" />
+
+
+                        <!-- Email -->
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="8dp"
+                            android:onClick="sendEmail"
+                            android:src="@drawable/emailicon" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:weightSum="3"
         android:layout_margin="5dp"
+        android:background="@color/back_1"
+        android:orientation="horizontal"
         android:padding="2dp"
-        android:background="@color/back_1">
+        android:weightSum="3"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/homeButton2"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="🏠\nHome"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:background="@color/back_2"
             android:layout_margin="5dp"
-            />
+            android:layout_weight="1"
+            android:background="@color/back_2"
+            android:gravity="center"
+            android:text="🏠\nHome"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/smoreButton2"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="☁️\nSee more"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:background="@color/back_2"
             android:layout_margin="5dp"
-            />
+            android:layout_weight="1"
+            android:background="@color/back_2"
+            android:gravity="center"
+            android:text="☁️\nSee more"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/webviewButton2"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="🌐\nWeb View"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:background="@color/back_2"
             android:layout_margin="5dp"
-            />
+            android:layout_weight="1"
+            android:background="@color/back_2"
+            android:gravity="center"
+            android:text="🌐\nAbout Me"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 </RelativeLayout>

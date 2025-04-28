@@ -58,7 +58,7 @@
             android:id="@+id/webButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="🌐\nWeb View"
+            android:text="🌐\nAbout Me"
             android:layout_weight="1"
             android:textSize="20sp"
             android:textColor="@color/white"

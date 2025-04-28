@@ -1,11 +1,10 @@
 package com.example.weatherapp;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,52 +14,64 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Windy_WebView extends AppCompatActivity {
-    WebView webTvDisplay;
+
+
     private TextView homeB, seemoreB, webviewB;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_windy_web_view);
 
-        webTvDisplay=findViewById(R.id.webView1) ;
-        homeB=findViewById(R.id.homeButton2) ;
-        seemoreB=findViewById(R.id.smoreButton2) ;
-        webviewB=findViewById(R.id.webviewButton2) ;
+        // Initialize navigation buttons
+        homeB = findViewById(R.id.homeButton2);
+        seemoreB = findViewById(R.id.smoreButton2);
+        webviewB = findViewById(R.id.webviewButton2);
 
 
-        homeB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent= new Intent(Windy_WebView.this, MainActivity.class) ;
-                startActivity(myIntent);
-            }
-        });
+        homeB.setOnClickListener(v -> navigateTo(MainActivity.class));
+        seemoreB.setOnClickListener(v -> navigateTo(See_More.class));
+        webviewB.setOnClickListener(v -> navigateTo(Windy_WebView.class));
 
-        seemoreB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent= new Intent(Windy_WebView.this, See_More.class) ;
-                startActivity(myIntent);
-            }
-        });
-
-        webviewB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent= new Intent(Windy_WebView.this, Windy_WebView.class) ;
-                startActivity(myIntent);
-            }
-        });
-        webTvDisplay.getSettings().setJavaScriptEnabled(true);
-        webTvDisplay.loadUrl("https://www.windy.com/-Waves-waves?waves,23.727,90.409,5");
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+
+    private void navigateTo(Class<?> cls) {
+        Intent intent = new Intent(Windy_WebView.this, cls);
+        startActivity(intent);
+    }
+
+
+    public void openGithub(View view) {
+        openWebUrl("https://github.com/abuZafor99");
+    }
+
+    public void openLinkedIn(View view) {
+        openWebUrl("https://linkedin.com/in/yourprofile");
+    }
+
+    public void openTwitter(View view) {
+        openWebUrl("https://twitter.com/yourhandle");
+    }
+
+    public void sendEmail(View view) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:zaforsadiq987l@gmail.com"));
+        startActivity(Intent.createChooser(emailIntent, "Send Email"));
+    }
+
+    private void openWebUrl(String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
