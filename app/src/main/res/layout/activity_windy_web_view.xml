@@ -63,7 +63,7 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Name -->
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -73,7 +73,15 @@
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
-                    <!-- Department -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:text="Independent University, Bangladesh"
+                        android:textColor="#16772A"
+                        android:textSize="14sp" />
+                 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -83,7 +91,7 @@
                         android:textColor="#16772A"
                         android:textSize="14sp" />
 
-                    <!-- About Me Text -->
+                  
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,6 +115,8 @@
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:layout_margin="8dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:onClick="openGithub"
                             android:src="@drawable/giticon" />
 
@@ -115,6 +125,8 @@
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:layout_margin="8dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:onClick="openLinkedIn"
                             android:src="@drawable/linkdinicon" />
 
@@ -124,6 +136,8 @@
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:layout_margin="8dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:onClick="sendEmail"
                             android:src="@drawable/emailicon" />
                     </LinearLayout>
